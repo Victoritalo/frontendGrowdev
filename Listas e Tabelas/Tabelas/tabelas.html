@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TABELAS</title>
+    <style>
+      table, th, td {
+        border: 1px solid ; /*Espessura, tipo e cor*/
+        padding: 5px; /*Preenchimento*/
+        border-collapse: collapse; /*Espaço interno*/
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <li type="none"><a href="/Listas e Tabelas/Tabelas/tabelas.html"  style="text-decoration: none;">TABELAS</a></li>
+
+        <li type="none"><a href="/Listas e Tabelas/Listas/index.html"  style="text-decoration: none;">LISTAS</a></li>
+
+        <li type="none"><a href="/Listas e Tabelas/Tabelas/coca.html"  style="text-decoration: none;">Coca-Cola Exercício</a></li>
+      </nav>
+    </header>
+    <hr />
+
+    <thead>
+      <!-- TABELAS -->
+      <table style="width: 50%;">
+        <colgroup>
+            <col style="background-color: gray;">
+            <col style="background-color: violet;">
+            <col style="background-color: purple;">
+        </colgroup>
+        <!-- TÍTULO -->
+        <caption>
+          Titulo Growdev
+        </caption>
+
+        <tr>
+          <!-- LINHA -->
+          <!-- CÉLULAS -->
+          <th>Nome</th>
+          <!-- CÉLULAS -->
+          <th>Sobrenome</th>
+          <th>Idade</th>
+        </tr>
+
+        <tbody>
+            <tr>
+                <td>Victor</td>
+                <td>Machado</td>
+                <td>36</td>
+              </tr>
+      
+              <tr>
+                <td>Victor</td>
+                <td>GGEZ</td>
+                <td>46</td>
+              </tr>
+      
+              <tr>
+                <td>Joel</td>
+                <td>Martins</td>
+                <td>30</td>
+              </tr>
+      
+              <tr>
+                <td>Rio</td>
+                <td>Araguaia</td>
+                <td>200</td>
+              </tr>
+        </tbody>
+      </table>
+    </thead>
+    <br><hr><br>
+    <table style="width: 50%;">
+        <caption>HELLO EXERCICIO</caption>
+        <thead>
+            <tr>
+                <th style="background-color: purple;">Código</th>
+                <th style="background-color: gray;">Nome</th>
+                <th style="background-color: yellow;">Email</th>
+            </tr>
+        </thead>
+    
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Victor</td>
+                <td>gmail@gmail.com</td>
+            </tr>
+
+            <tr>
+                <td>2</td>
+                <td>Vitão</td>
+                <td>gmail@gmail.com</td>
+            </tr>
+
+            <tr>
+                <td>3</td>
+                <td>Vitaum</td>
+                <td>gmail@gmail.com</td>
+            </tr>
+
+            <tr>
+                <th colspan="2"><strong>Total de inscritos</strong></th>
+                <td rowspan="3" style="text-align: center;">3</td>
+            </tr>
+            <tr>
+                <th colspan="2">Dados</th>
+            </tr>
+        </tbody>
+    </table>
+  </body>
+</html>

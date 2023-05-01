@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 1</title>
+    <style>
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    background-color: gray;
+}
+.relative {
+    position: relative;
+    top: 1%;
+    left: 50%;
+    bottom: 1%;
+    height: 98%;
+    width: 80%;
+    background-color: blue;
+    transform: translateX(-50%);
+}
+
+.orange {
+    position: absolute;
+    background-color: orange;
+    height: 70%;
+    width: 70%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.red {
+    position: absolute;
+    background-color: red;
+    height: 60%;
+    width: 60%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.black{
+    position: absolute;
+    background-color: black;
+    height: 50%;
+    width: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+}
+
+.green {
+    position: absolute;
+    background-color: green;
+    height: 40%;
+    width: 40%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+    </style>
+</head>
+<body>
+    
+    <div class="relative">
+        <div class="orange">
+            <div class="red">
+                <div class="black">
+                    <div class="green"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

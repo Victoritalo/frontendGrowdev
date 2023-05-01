@@ -1,0 +1,25 @@
+* {
+    margin: 2px;
+}
+
+.inline {
+    /* Width e Height não funcionam com inline */
+    display: inline;
+    background-color: orange;
+    height: 400px;
+    width: 400px;
+}
+
+.block {
+    display: block;
+    background-color: orange;
+    height: 100px;
+    width: 100px;
+}
+
+.inline-block {
+    display: inline-block;
+    background-color: orange;
+    height: 200px;
+    width: 200px;
+}
