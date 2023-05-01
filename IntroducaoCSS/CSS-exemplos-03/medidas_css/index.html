@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS</title>
+    <style>
+      body {
+        margin: 0;
+      }
+      main {
+        margin: 0;
+        padding: 5px;
+        background-color: lightgray;
+      }
+      
+      main > h1, p, .browser {
+        margin: 10px;
+        padding: 5px;
+      }
+      
+      .browser {
+        background: white;
+      }
+      
+      .browser > h2, p {
+        margin: 4px;
+        font-size: 90%;
+      }
+
+      nav {
+            width: 100%;
+        }
+
+        nav ul {
+            width: 100%;
+            margin: 0px;
+            padding: 0px;
+            list-style: none;
+        }
+
+        nav ul li {
+            width: 25%;
+            float: left;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            text-align: center;
+            background: #222;
+            display: block;
+            padding: 20px 0px;
+            border: 1px solid #222;
+        }
+
+        nav ul li > ul {
+            display: none;
+        }
+
+        nav ul li > ul li {
+            float: left;
+            width: 100%;
+        }
+
+        nav ul li:hover > ul {
+            display: block;
+            z-index: 9999;
+            position: fixed;
+            width: 20em;
+        }
+
+        nav ul li a:hover {
+            background: #fff;
+            color: #222;
+            border: 1px solid #222;
+        }
+      </style>
+  </head>
+  <body>
+    
+    <header class="masthead mb-auto">
+      <nav>
+        <!-- Primeira lista -->
+        <ul>
+            <li>
+                <a href="#">Home</a>
+            </li>
+            <li>
+                <a href="#">Quem somos</a>
+            </li>
+            <li>
+                <a href="#">Produtos</a>
+                <!-- Segunda lista -->
+                <ul>
+                    <li>
+                        <a href="#">Categoria 1</a>
+                        <!-- Terceira lista -->
+                        <!-- ... -->
+                    </li>
+                    <li>
+                        <a href="#">Categoria 2</a>
+                    </li>
+                    <li>
+                        <a href="#">Categoria 3</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Contato</a>
+            </li>
+        </ul>
+    </nav>
+    </header>
+
+    <main>
+      <h1>Marcelo Eltz</h1>
+      <p>Chrome, Firefox, and Edge are the most used browsers today.</p>
+      <article class="browser">
+        <h2>Google Chrome</h2>
+        <p>
+          Google Chrome is a web browser developed by Google, released in 2008.
+          Chrome is the world's most popular web browser today!
+        </p>
+      </article>
+      <article class="browser">
+        <h2>Mozilla Firefox</h2>
+        <p>
+          Mozilla Firefox is an open-source web browser developed by Mozilla.
+          Firefox has been the second most popular web browser since January,
+          2018.
+        </p>
+      </article>
+      <article class="browser">
+        <h2>Microsoft Edge</h2>
+        <p>
+          Microsoft Edge is a web browser developed by Microsoft, released in
+          2015. Microsoft Edge replaced Internet Explorer.
+        </p>
+      </article>
+    </main>
+  </body>
+</html>

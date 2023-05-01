@@ -1,0 +1,30 @@
+"PX", tamanho em pixel exato conforme a tela.
+
+"EM", Vai se basear no tamanho do pai. calculo abaixo.
+
+"REM", Vai se baser apenas no root HTML.
+
+"VH - VM", A medida vh é igual a 1/100 da altura da viewport. 
+Então, por exemplo, se a altura do navegador é 900px, 1vh equivale a 9px e, 
+analogamente, se a largura da viewport é 750px, 1vw equivale a 7.5px.
+
+"VMIN e VMAX", Por exemplo, se o navegador foi ajustado para 1100px de largura e a altura 700px,
+ 1vmin seria 7px e 1vmax seria 11px. Contudo, se a largura foi ajustada para 800px
+  e a altura definida para 1080px, vmin seria igual a 8px e vmax 10.8px.
+
+body {
+  font-size: 14px;
+}
+ 
+div {
+  font-size: 1.2em; /* calculado como 14px * 1.2, ou 16.8px */
+}
+
+color:
+margin:
+background-color:
+font-size:
+font-family:
+padding:
+text-align:
+font-weight:

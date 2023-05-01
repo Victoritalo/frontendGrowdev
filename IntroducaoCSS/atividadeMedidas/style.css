@@ -1,0 +1,46 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* box sizing = tratar todos como caixa */
+}
+
+.caixa1 {
+    background-color: orange;
+    height: 100vh;
+    width: 100vw;
+}
+
+.caixa2 {
+    background-color: green;
+    height: 10vh;
+    width: 100vw;
+}
+
+.caixa3 {
+    background-color: blue;
+    width: 50vw;
+    height: 50vh;
+}
+
+.caixa4 {
+    background-color: gray;
+    height: 50vh;
+    width: 70vm;
+    /* float: left; */
+}
+
+.ex01 {
+    height: 300px;
+    width: 300px;
+    background-color: yellow;
+    border-bottom: 5px solid red;
+}
+
+.ex02 {
+    height: 300px;
+    width: 300px;
+    padding: 25px;
+    background-color: lightblue;
+    border-bottom: 5px solid yellow;
+}
