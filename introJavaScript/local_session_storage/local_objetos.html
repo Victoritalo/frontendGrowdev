@@ -1,0 +1,40 @@
+<script>
+  //VETOR
+  let pessoas = [];
+
+  //OBJETOS
+  let p1 = {
+    nome: "Jamerson",
+    sobrenome: "Julião"
+  }
+  let p2 = {
+    nome: "Fhilipe",
+    sobrenome: "Sousa"
+  }
+
+  let p3 = {
+    nome: "Marco",
+    sobrenome: "Sousa"
+  }
+
+  //ADICIONAR
+  pessoas.push(p1);//adiciona
+  pessoas.push(p2);//adiciona
+
+  //COLOCAR NO LOCALSTORAGE O OBJETO(VETOR) CONVERTIDO EM STRING
+  localStorage.setItem("banco_de_dados", JSON.stringify(pessoas));//String
+
+
+  
+  const bd = localStorage.getItem("banco_de_dados");//pego do localstorage (String)
+  console.log(bd);
+
+  const resultadoConvertido = JSON.parse(bd); //Objeto (vetor)
+
+  console.log(resultadoConvertido);
+
+  //Percorre o vetor
+  resultadoConvertido.forEach(element => {
+    console.log(element);//imprimo o dado
+  });
+</script>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LOCALSTORAGE</title>
+</head>
+<body>
+  <script>
+    //Armazena um valor dentro do navegador (fechar o navegador - ele continua os dados no localstorage)
+    //(chave, valor)
+    localStorage.setItem("Nome", "Julião");
+    localStorage.setItem("Idade", 30);
+    console.log(typeof localStorage.getItem("Idade"));
+    //Deleta o dado pela chave
+    localStorage.removeItem("Idade");
+
+    //Pegar valor
+    let nome = localStorage.getItem("Nome");
+    document.write(nome);
+
+    localStorage.clear();//limpa todos
+  </script>
+</body>
+</html>

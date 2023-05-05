@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <form action="" id="form">
+    <fieldset>
+      <legend>Cadastro de usuário</legend>
+      <label for="">Nome</label>
+      <input type="text" id="nome" name="nome">
+      <label for="">Sobrenome</label>
+      <input type="text" id="sobrenome" name="sobrenome">
+      <button type="submit" id="enviar">Salvar</button>
+    </fieldset>
+  </form>
+  <script>
+    //PEGA OS DADOS E APRESENTA NO CONSOLE QUANDO CLICADO NO BOTAO, APROVEITA E LIMPA OS CAMPOS
+    const campos = document.querySelectorAll("#form [name]");//nodelist
+    const form  = document.querySelector("form");//mapeio o elemento formulário
+
+    form.addEventListener("submit", (e)=>{
+      e.preventDefault();
+      campos.forEach((el)=>{console.log(el.value)})
+      form.reset();//limpo todos os campos
+    });
+    
+  </script>
+</body>
+</html>

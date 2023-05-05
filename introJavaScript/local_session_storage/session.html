@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SESSIONSTORAGE</title>
+</head>
+<body>
+  <script>
+    //Armazena um valor dentro do navegador
+    //(chave, valor)
+    sessionStorage.setItem("Nome", "Julião");
+    sessionStorage.setItem("Idade", 30);
+    let nome = sessionStorage.getItem("Nome");
+    console.log(nome)
+    sessionStorage.removeItem('Nome');
+    sessionStorage.clear();
+  </script>
+</body>
+</html>
