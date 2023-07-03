@@ -63,7 +63,7 @@ function apresentacao() {
         removerCarro();
         break;
       case 6:
-        console.log("6");
+        alert("Saiu do sistema!");
         break;
 
       default:
@@ -74,10 +74,10 @@ function apresentacao() {
 }
 
 function cadastrarVeiculos() {
-  const modelo = prompt("MODELO:")
-  const marca = prompt("MARCA:")
-  const ano = parseInt(prompt("ANO:"))
-  const cor = prompt("COR:")
+  const modelo = prompt("MODELO:");
+  const marca = prompt("MARCA:");
+  const ano = parseInt(prompt("ANO:"));
+  const cor = prompt("COR:");
   const preco = parseInt(prompt("PREÇO:"));
 
   const carro = {
@@ -119,8 +119,8 @@ function atualizarVeiculo() {
   });
 
   if (getIndex === procurarId) {
-    const alterarCor = "AZULAO";
-    const alterarValor = 99999;
+    const alterarCor = prompt("Nova cor do veículo:")
+    const alterarValor = parseInt(prompt("Novo preço do veículo:"))
     veiculosCadastrados[getIndex].cor = alterarCor;
     veiculosCadastrados[getIndex].preco = alterarValor;
   } else {
