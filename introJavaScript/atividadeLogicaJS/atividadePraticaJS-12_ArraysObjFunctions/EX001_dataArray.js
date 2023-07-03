@@ -46,12 +46,23 @@ mediaSalario = sumSalarioMasculino / count;
 console.log(mediaSalario);
 
 // 7: Utilize a função Some, para descobrir se existe algum salário superior a R$ 7.000, imprima verdadeiro no console caso exista, caso contrário falso.
-// const resultado = data.some(salarioseteMil)
-// function salarioSeteMil (acharSalario) {
-//     return acharSalario.salario > 7000
-// }
-// console.log(resultado)
 const resultado = (acharSalario) => acharSalario.salario > 7000;
 console.log(data.some(resultado));
 
+// 8: Utilize a função findIndex, para descobrir a posição da pessoa de nome 'Eva Trindade'.
+const evaTrindade = data.findIndex(function (pessoa) {
+  return pessoa.nome === "Eva Trindade";
+});
+console.log(evaTrindade);
 
+// 9: Utilize a função filter, para filtrar todas pessoas que o nome possua o sobrenome "Silva".
+const silva = data.filter(function (pessoa) {
+  return pessoa.nome.includes("Silva");
+});
+console.log(silva);
+// 10: Imprima os nomes utilizando o MAP
+// const nomes = data.map(pessoas => pessoas.nome)
+const nomes = data.map(function (pessoas) {
+  return pessoas.nome;
+});
+console.log(nomes);
