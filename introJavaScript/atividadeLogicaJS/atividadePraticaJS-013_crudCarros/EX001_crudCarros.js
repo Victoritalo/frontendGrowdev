@@ -74,12 +74,17 @@ function apresentacao() {
 }
 
 function cadastrarVeiculos() {
-  const modelo = prompt("MODELO:");
-  const marca = prompt("MARCA:");
-  const ano = parseInt(prompt("ANO:"));
-  const cor = prompt("COR:");
-  const preco = parseInt(prompt("PREÇO:"));
+  // const modelo = prompt("MODELO:");
+  // const marca = prompt("MARCA:");
+  // const ano = parseInt(prompt("ANO:"));
+  // const cor = prompt("COR:");
+  // const preco = parseInt(prompt("PREÇO:"));
 
+  const modelo = "MODELO"
+  const marca = "MARCA:"
+  const ano = 2015
+  const cor = "rOSA"
+  const preco = 99999
   const carro = {
     id: countId,
     modelo: modelo,
@@ -130,13 +135,12 @@ function atualizarVeiculo() {
 }
 
 function removerCarro() {
-  const procurarId = Number(prompt("Qual ID do veículo que deseja atualizar?"));
+  const procurarId = Number(prompt("Qual ID do veículo que deseja remover?"));
   const getIndex = veiculosCadastrados.findIndex((deletar) => {
     return deletar.id === procurarId;
   });
   if (getIndex === procurarId) {
     veiculosCadastrados.splice(procurarId, 1);
-    return;
   } else {
     alert("Veículo não encontrado.");
     return;
