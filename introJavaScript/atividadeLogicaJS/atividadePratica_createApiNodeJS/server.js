@@ -66,9 +66,7 @@ app.delete("/products/:id", async (req, res) => {
 });
 
 mongoose
-  .connect(
-    
-  )
+  .connect()
   .then(() => {
     console.log("Connected!");
     app.listen(3000, () => {
