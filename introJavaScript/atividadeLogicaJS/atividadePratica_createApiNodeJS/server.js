@@ -66,7 +66,9 @@ app.delete("/products/:id", async (req, res) => {
 });
 
 mongoose
-  .connect()
+  .connect(
+    "mongodb+srv://admin:tEYYxG3fqY0aIMvC@devictorapi.6kpkuti.mongodb.net/Node-API?retryWrites=true&w=majority"
+  )
   .then(() => {
     console.log("Connected!");
     app.listen(3000, () => {
