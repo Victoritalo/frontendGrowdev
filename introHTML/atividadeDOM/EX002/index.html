@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contador</title>
+  </head>
+  <title>contador de cliques</title>
+  <script>
+    var contador = 0;
+    function incrementarContador() {
+      contador++;
+      atualizarMensagem();
+    }
+    function zerarContador() {
+      contador = 0;
+      atualizarMensagem();
+    }
+
+    function atualizarMensagem() {
+      var mensagem = document.getElementById("mensagem");
+      if (contador === 0) {
+        mensagem.style.display = "none";
+      } else {
+        mensagem.style.display = "block";
+        mensagem.textContent =
+          "o contador está com " + contador + (contador === 1 ? "" : "s") + ".";
+      }
+    }
+  </script>
+  <body>
+    <h1>contador de cliques</h1>
+    <button onclick="incrementarContador()">incrementar</button>
+    <button onclick="zerarContador()">zerar contador</button>
+    <p id="mensagem" style="display: none">o contador está com zero cliques</p>
+  </body>
+</html>
