@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="./style/reset.css" />
+    <link rel="stylesheet" href="./style/index.css" />
+    <script src="https://kit.fontawesome.com/4d50fc5e66.js" crossorigin="anonymous"></script>
+    <title>Sign Up</title>
+  </head>
+  <body class="themebody">
+    <div class="container">
+      <div id="cartoon_illustration">
+      </div>
+      <div class="form_container">
+        <div class="form_header">
+          <h3>Sign Up</h3>
+          <p>It’s quick and easy!</p>
+          <span class="alertText" style="color:brown"></span>
+        </div>
+        <form class="form" id="register">
+          <label id="labelUserName" for="name">Name</label>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            placeholder="First name"
+            required
+          />
+
+          <label id="labelEmailUser" for="email">Email</label>
+          <input
+          type="email"
+          name="email"
+          id="email"
+          placeholder="email@example.com"
+          required
+          />
+          <i class="fa-solid fa-eye"></i>
+          <label id="labelPasswordUser" for="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            minlength="4"
+            placeholder="Password"
+            required
+          />
+
+          <i class="fa-solid fa-eye"></i>
+          <label id="labelPasswordUser2" for="password2">Password</label>
+          <input
+            type="password"
+            id="password2"
+            name="password2"
+            minlength="4"
+            placeholder="Repeat password"
+            required
+          />
+
+          <button type="submit" onclick="createAccount()">
+            Sign Up
+          </button>
+        </form>
+        <label id="labelErrorMsg" for=""></label>
+        <div class="loader"></div>
+          <a href="./index.html" class="returnLoginLink">
+            <p style="font-weight: bold;">
+              Return to login screen
+            </p>
+          </a>
+      </div>
+    </div>
+    <script src="./cfg/register.js"></script>
+  </body>
+</html>

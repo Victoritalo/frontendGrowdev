@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="./style/reset.css" />
+    <link rel="stylesheet" href="./style/index.css" />
+    <script
+      src="https://kit.fontawesome.com/4d50fc5e66.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Login</title>
+  </head>
+  <body class="themebody">
+    <div class="container">
+      <div id="cartoon_illustration"></div>
+      <div class="form_container">
+        <div class="form_header">
+          <h3>User Login</h3>
+          <p>Enjoy!</p>
+          <span class="alertText" style="color:brown"></span>
+        </div>
+        <form class="form" id="login">
+          <label id="labelEmailUser" for="email">Email</label>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="email@example.com"
+            required
+          />
+
+          <i class="fa-solid fa-eye"></i>
+          <label id="labelPasswordUser" for="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            minlength="4"
+            placeholder="Password"
+            required
+          />
+          <button type="submit" onclick="loginUser()">
+            Login
+          </button>
+        </form>
+        <label id="labelErrorMsg" for=""></label>
+        <div class="loader"></div>
+
+        <a href="./signup.html" class="returnLoginLink">
+          <p>Don't have an account? 
+            <span style="font-weight: bold;">Sign Up</span>
+          </p>
+        </a>
+
+        <div class="form_button">
+          <button>
+            <i class="fa-brands fa-google"></i>
+            <span>Login with Google</span>
+          </button>
+          <button>
+            <i class="fa-brands fa-instagram"></i>
+          </button>
+          <button>
+            <i class="fa-brands fa-twitter"></i>
+          </button>
+          <div class="overlay hidden"></div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./cfg/login.js"></script>
+  </body>
+</html>
