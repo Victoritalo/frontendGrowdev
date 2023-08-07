@@ -18,7 +18,7 @@
         <div class="form_header">
           <h3>Sign Up</h3>
           <p>It’s quick and easy!</p>
-          <span class="alertText" style="color:brown"></span>
+          <span class="alertText"></span>
         </div>
         <form class="form" id="register">
           <label id="labelUserName" for="name">Name</label>
@@ -38,29 +38,27 @@
           placeholder="email@example.com"
           required
           />
-          <i class="fa-solid fa-eye"></i>
-          <label id="labelPasswordUser" for="password">Password</label>
+          <i id="peekPassOne" class="fa-solid fa-eye"></i>
+          <label id="labelPassword" for="password">Choose password</label>
           <input
             type="password"
-            id="password"
             name="password"
             minlength="4"
-            placeholder="Password"
+            placeholder="****************"
             required
           />
 
-          <i class="fa-solid fa-eye"></i>
-          <label id="labelPasswordUser2" for="password2">Password</label>
+          <i id="peekPassTwo" class="fa-solid fa-eye"></i>
+          <label id="labelPasswordTwo" for="confirmPass">Confirm password</label>
           <input
             type="password"
-            id="password2"
-            name="password2"
+            name="confirmPass"
             minlength="4"
-            placeholder="Repeat password"
-            required
+            placeholder="****************"
+            
           />
 
-          <button type="submit" onclick="createAccount()">
+          <button type="submit">
             Sign Up
           </button>
         </form>
