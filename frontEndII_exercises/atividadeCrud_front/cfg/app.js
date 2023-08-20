@@ -28,7 +28,6 @@ async function userManagement() {
   try {
     const res = await axios.get(`https://crud-api-wkqg.onrender.com/${userID}/${currentPage}`);
     const user = res.data;
-    console.log(res);
     verifyPages(user.totalPages)
     welcomeUser.innerHTML = `Hello, ${user.name}!`;
     let tr = "";
@@ -36,7 +35,6 @@ async function userManagement() {
 
     for (const i in user.messages) {
       const message = user.messages[i];
-      console.log(message);
       tr += `
         <tr>
           <td>${message.title}</td>
@@ -87,7 +85,7 @@ function addMessage() {
       setTimeout(function () {
         alert.innerHTML = "";
         alert.classList.remove("successMessage");
-        window.location.reload(); //temfix
+        window.location.reload(); //tempfix
       }, 1500);
       userManagement();
     } catch (err) {
@@ -103,8 +101,7 @@ function addMessage() {
   });
 }
 
-function editItem(index, test, test2) {
-  console.log(test, test2);
+function editItem(index) {
   messageForm.reset();
   modal.classList.add("active");
   messageForm.addEventListener("submit", async (event) => {
@@ -124,7 +121,7 @@ function editItem(index, test, test2) {
       setTimeout(function () {
         alert.innerHTML = "";
         alert.classList.remove("successMessage");
-        window.location.reload(); //temfix
+        window.location.reload(); //tempfix
       }, 1500);
       userManagement();
     } catch (err) {
@@ -136,7 +133,6 @@ function editItem(index, test, test2) {
         alert.classList.remove("errorMessage");
       }, 1500);
     }
-
     console.clear();
   });
 }
@@ -161,7 +157,6 @@ async function deleteItem(index) {
     }, 1500);
     alert.innerHTML = `<p><i class="fa-solid fa-xmark"></i>${errMsg}</p>`;
   }
-  // console.clear();
 }
 function nextPage() {
   currentPage++;

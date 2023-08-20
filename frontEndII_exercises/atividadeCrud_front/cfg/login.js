@@ -12,7 +12,6 @@ function loginUser() {
         userEmail: email,
         userPass: password,
       });
-      console.log(res.data)
       alertMsg.innerHTML = `${res.data.message}`;
       alertMsg.setAttribute("style", "color: #005C4B");
       const userID = res.data.userId
@@ -25,7 +24,6 @@ function loginUser() {
       let errMsg = err.response.data.error;
       alertMsg.innerHTML = `Something went wrong!<br>${errMsg}`;
       alertMsg.setAttribute("style", "color: #ff715b");
-      console.log(err.response.status);
     }
   });
 }

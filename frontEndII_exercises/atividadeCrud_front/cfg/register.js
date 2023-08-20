@@ -26,7 +26,6 @@ function createAccount() {
       let errMsg = err.response.data.error;
       alertMsg.innerHTML = `Something went wrong!<br>${errMsg}`;
       alertMsg.setAttribute("style", "color: #ff715b");
-      console.log(err.response.status);
     }
   });
 }
