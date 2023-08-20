@@ -1,0 +1,360 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;700&family=Roboto:wght@100;300;400;500;700;900&family=Source+Sans+Pro:wght@200;300;400;600;700;900&display=swap");
+:root {
+  --primary: #2a225a;
+  --sec: #f33649;
+  --basic: #ffffff;
+}
+
+.bx-trash {
+  color: #ff4f61;
+}
+.bx-edit {
+  color: #2a225a;
+}
+
+body {
+  /* width: 100vw; */
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-image: linear-gradient(to right, #ff4f61, #ff715b);
+  font-family: "Poppins", sans-serif;
+}
+.popUpAlert {
+  position: fixed;
+  top: 5px;
+  right: 0;
+  min-width: 150px;
+  padding: 1.2rem;
+}
+.fa-check,
+.fa-xmark {
+  color: var(--basic);
+  width: 20px;
+}
+.successMessage {
+  background-color: var(--primary);
+  color: var(--basic);
+}
+.errorMessage {
+  background-color: var(--sec);
+  color: var(--basic);
+}
+
+.typeWriter h2 {
+  color: var(--primary);
+  overflow: hidden;
+  border-right: 0.15em solid var(--sec);
+  white-space: nowrap;
+  margin: 0 auto;
+  letter-spacing: 0.15em;
+  animation: typing 2.5s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: var(--sec);
+  }
+}
+
+.welcomeUser {
+  text-align: center;
+  width: 50%;
+  height: 10%;
+  margin: auto;
+  padding: 10px;
+  border-radius: 10px;
+  background: var(--basic);
+}
+.container {
+  width: 90%;
+  height: 80%;
+  border-radius: 10px 10px 0 0;
+  background: var(--basic);
+}
+
+.headerApp {
+  min-height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: auto 12px;
+  padding: 10px;
+}
+
+.headerApp h2 {
+  font-weight: 900;
+  font-size: 20px;
+  word-break: break-all;
+}
+.headerApp button {
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btnStyleNew {
+  font-size: 16px;
+  padding: 8px;
+  border-radius: 5px;
+  border: none;
+  color: var(--basic);
+  background-color: var(--primary);
+}
+
+.btnStyleLogout {
+  font-size: 16px;
+  padding: 8px;
+  border-radius: 5px;
+  border: none;
+  color: var(--basic);
+  background-color: var(--sec);
+}
+
+.btnStyleNew:hover,
+.btnStyleLogout:hover {
+  transform: scale(0.96);
+}
+
+.divTable {
+  padding: 10px;
+  width: auto;
+  height: inherit;
+  overflow: auto;
+}
+
+.divTable::-webkit-scrollbar {
+  width: 8px;
+  background-color: var(--basic);
+}
+
+.divTable::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: var(--primary);
+}
+td {
+  text-align: center;
+}
+table {
+  width: 100%;
+  border-spacing: 10px;
+  word-break: break-all;
+  border-collapse: collapse;
+}
+
+thead {
+  background-color: whitesmoke;
+}
+
+tr {
+  border-bottom: 1px solid rgb(238, 235, 235) !important;
+}
+
+tbody tr td {
+  vertical-align: text-top;
+  padding: 16px;
+  max-width: 50px;
+}
+.messageTitle {
+  width: 25%;
+  text-align: center;
+}
+.messageStyle {
+  width: 50%;
+  text-align: center;
+}
+
+thead tr th {
+  padding: 5px;
+  text-align: start;
+  margin-bottom: 50px;
+}
+
+tbody tr {
+  margin-bottom: 50px;
+}
+
+thead tr th.action {
+  width: 100px !important;
+  text-align: center;
+}
+
+th .action i {
+  visibility: hidden;
+}
+
+tbody tr td.action {
+  text-align: center;
+}
+
+.paginatedBtn {
+  display: flex;
+  justify-content: space-around;
+  background-color: var(--basic);
+  width: 90%;
+}
+.paginatedBtn button {
+  border: none;
+  cursor: pointer;
+  background-color: var(--sec);
+  color: var(--basic);
+  padding: 15px;
+  margin-bottom: 30px;
+  border-radius: 20px;
+  width: 15%;
+  transition: 0.3s;
+  box-shadow: 2px 1px 2px 0px rgba(0, 0, 0, 0.2)
+}
+.paginatedBtn button:hover {
+  transform: scale(0.95);
+}
+@media (max-width: 768px) {
+  body {
+    font-size: 10px;
+  }
+
+  .btnStyleLogout,
+  .btnStyleNew {
+    font-size: 15px;
+  }
+
+  .typeWriter h2 {
+    font-size: 14px;
+  }
+
+  thead tr th.action {
+    width: auto !important;
+  }
+
+  td button i {
+    font-size: 20px !important;
+  }
+
+  td button i:first-child {
+    margin-right: 0;
+  }
+
+  .modal {
+    width: 90% !important;
+  }
+
+  .modal label {
+    font-size: 12px !important;
+  }
+}
+
+.modal_container {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+  z-index: 999;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px;
+  background-color: white;
+  border-radius: 10px;
+  max-width: 60%;
+}
+
+.modal label {
+  font-size: 14px;
+  width: 100%;
+}
+
+.modal input {
+  width: 100%;
+  outline: none;
+  padding: 5px 10px;
+  width: 100%;
+  margin-bottom: 20px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+.modalBtn {
+  display: flex;
+  justify-content: space-evenly;
+  /* gap: 5px; */
+}
+.modal button,
+#closeBtn {
+  outline: none;
+  border-radius: 20px;
+  padding: 10px;
+  min-width: 40%;
+  border: none;
+  background-color: #2a225a;
+  color: white;
+  transition: 0.3s;
+  text-align: center;
+  cursor: pointer;
+}
+
+#saveBtn:hover,
+#closeBtn:hover {
+  transform: scale(0.98);
+}
+
+.active {
+  display: flex;
+}
+
+.active .modal {
+  animation: modal 0.4s;
+}
+
+@keyframes modal {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -60px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+td button {
+  border: none;
+  outline: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+td button i {
+  font-size: 25px;
+}
+
+td button i:first-child {
+  margin-right: 10px;
+}
+
+@media (max-width: 368px) {
+  .container {
+    min-width: 100%;
+  }
+}

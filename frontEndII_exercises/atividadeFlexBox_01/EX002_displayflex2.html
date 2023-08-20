@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            height: 100vh;
+            width: 100vw;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100%;
+            padding: 5px;
+        }
+        .ball, .square {
+            height: 150px;
+            width: 150px;
+            border: 5px solid black;
+        }
+        .squares {
+            position: fixed;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            bottom: 0;
+        }
+        .ball {
+            position: fixed;
+            right: 0;
+            border-radius: 50%;
+            background-color: #FF9900;
+        }
+        .one {
+            background-color: #0B5394;
+        }
+        .two {
+            background-color: #0B5394;
+        }
+    </style>
+</head>
+<body>
+    <main class="container">
+        <div class="ball"></div>
+        <div class="squares">
+            <div class="square one"></div>
+            <div class="square two"></div>
+        </div>
+    </main>
+</body>
+</html>
