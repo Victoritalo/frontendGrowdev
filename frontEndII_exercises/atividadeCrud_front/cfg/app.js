@@ -1,16 +1,23 @@
 const tbody = document.querySelector("tbody");
-const header = document.querySelector("header");
 const modal = document.querySelector(".modal_container");
 const messageForm = document.querySelector("#messageForm");
 const alert = document.querySelector(".popUpAlert");
 let welcomeUser = document.querySelector("#welcomeUser");
+const newMessageButton = document.querySelector("#newMessage");
+
+newMessageButton.addEventListener("click", (e) => {
+  e.preventDefault();
+  showModal();
+});
+
+const userID = verifyTokenLocalStorage();
+let currentPage = 1;
 
 function verifyTokenLocalStorage() {
   return JSON.parse(localStorage.getItem("userID"));
 }
 
 function getLoggedUser() {
-  const userID = verifyTokenLocalStorage();
   if (!userID) {
     alert("Please login first!");
     localStorage.clear();
@@ -20,148 +27,135 @@ function getLoggedUser() {
     return;
   }
 }
-getLoggedUser();
-let currentPage = 1;
 
-async function userManagement() {
-  userID = verifyTokenLocalStorage();
+function userManagement() {
   try {
-    const res = await axios.get(`https://crud-api-wkqg.onrender.com/${userID}/${currentPage}`);
-    const user = res.data;
-    verifyPages(user.totalPages)
-    welcomeUser.innerHTML = `Hello, ${user.name}!`;
-    let tr = "";
-    const tbody = document.querySelector("tbody");
+    axios.get(`http://127.0.0.1:3000/${userID}/${currentPage}`)
+      .then((res) => {
+        const user = res.data;
+        verifyPages(user.totalPages);
+        welcomeUser.innerHTML = `Hello, ${user.name}!`;
+        let tr = "";
 
-    for (const i in user.messages) {
-      const message = user.messages[i];
-      tr += `
-        <tr>
-          <td>${message.title}</td>
-          <td>${message.message}</td>
-          <td class="action">
-            <button onclick="editItem(${i})"><i class='bx bx-edit' ></i></button>
-          </td>
-          <td class="action">
-            <button onclick="deleteItem(${i})"><i class='bx bx-trash'></i></button>
-          </td>
-        </tr>
-      `;
-    }
-    tbody.innerHTML = tr;
+        for (const i in user.messages) {
+          const message = user.messages[i];
+          tr += `
+            <tr>
+              <td>${message.title}</td>
+              <td>${message.message}</td>
+              <td class="action">
+                <button onclick="editItem(${i})"><i class='bx bx-edit' ></i></button>
+              </td>
+              <td class="action">
+                <button onclick="deleteItem(${i})"><i class='bx bx-trash'></i></button>
+              </td>
+            </tr>
+          `;
+        }
+        tbody.innerHTML = tr;
+      })
+      .catch((error) => {
+        const err = error.response;
+        const errStatus = err.status;
+        localStorage.clear();
+        setTimeout(() => {
+          alert(`${errStatus} ${err.data.error}`);
+          // window.location.reload();
+        }, 100);
+      });
   } catch (error) {
-    const err = error.response;
-    const errStatus = err.status;
-    localStorage.clear();
-    setTimeout(() => {
-      alert(`${errStatus} ${err.data.error}`);
-      window.location.reload();
-    }, 100);
+    console.error(error);
   }
 }
-userManagement();
+
 function verifyPages(numOfPages) {
+  const previousBtn = document.querySelector("#previousBtn");
+  const nextBtn = document.querySelector("#nextBtn");
+
   if (currentPage === 1) previousBtn.disabled = true;
   else previousBtn.disabled = false;
+
   if (currentPage === numOfPages) nextBtn.disabled = true;
   else nextBtn.disabled = false;
 }
-function addMessage() {
-  messageForm.reset();
+
+function showModal() {
   modal.classList.add("active");
-  messageForm.addEventListener("submit", async (event) => {
-    event.preventDefault();
-    const title = messageForm.title.value;
-    const message = messageForm.message.value;
-    try {
-      const res = await axios.post(`https://crud-api-wkqg.onrender.com/${userID}/message`, {
-        title: title,
-        message: message,
-      });
-      const resMsg = res.data.message;
-      modal.classList.remove("active");
-      alert.classList.add("successMessage");
-      alert.innerHTML = `<p><i class="fa-solid fa-check"></i>${resMsg}</p>`;
-      setTimeout(function () {
-        alert.innerHTML = "";
-        alert.classList.remove("successMessage");
-        window.location.reload(); //tempfix
-      }, 1500);
-      userManagement();
-    } catch (err) {
-      let errMsg = err.response.data.error;
-      alert.classList.add("errorMessage");
-      alert.innerHTML = `<p><i class="fa-solid fa-xmark"></i>${errMsg}</p>`;
-    }
-    setTimeout(function () {
-      alert.innerHTML = "";
-      alert.classList.remove("errorMessage");
-    }, 1500);
-    console.clear();
+  const closeBtn = document.querySelector("#closeBtn");
+  closeBtn.addEventListener("click", () => {
+    modal.classList.remove("active");
   });
 }
 
-function editItem(index) {
+function handleFormSubmission(submissionFunction) {
   messageForm.reset();
-  modal.classList.add("active");
+  showModal();
+
   messageForm.addEventListener("submit", async (event) => {
     event.preventDefault();
     const title = messageForm.title.value;
     const message = messageForm.message.value;
-    alert.innerHTML = "";
+
     try {
-      const res = await axios.put(`https://crud-api-wkqg.onrender.com/${userID}/${index}`, {
-        title: title,
-        message: message,
-      });
-      const resMsg = res.data.message;
-      alert.innerHTML = `<p><i class="fa-solid fa-check"></i>${resMsg}</p>`;
+      await submissionFunction(title, message);
       modal.classList.remove("active");
       alert.classList.add("successMessage");
-      setTimeout(function () {
+      alert.innerHTML =
+        "<p><i class='fa-solid fa-check'></i>Operation successful.</p>";
+      setTimeout(() => {
         alert.innerHTML = "";
         alert.classList.remove("successMessage");
-        window.location.reload(); //tempfix
+        // window.location.reload();
       }, 1500);
       userManagement();
     } catch (err) {
-      let errMsg = err.response.data.error;
-      alert.innerHTML = `<p><i class="fa-solid fa-xmark"></i>${errMsg}</p>`;
+      let errMsg = err.response?.data?.error || "An error occurred.";
       alert.classList.add("errorMessage");
-      setTimeout(function () {
+      alert.innerHTML = `<p><i class="fa-solid fa-xmark"></i>${errMsg}</p>`;
+      setTimeout(() => {
         alert.innerHTML = "";
         alert.classList.remove("errorMessage");
       }, 1500);
     }
-    console.clear();
+  });
+}
+
+function editItem(index) {
+  handleFormSubmission(async (title, message) => {
+    await axios.put(`http://127.0.0.1:3000/${userID}/${index}`, {
+      title: title,
+      message: message,
+    });
   });
 }
 
 async function deleteItem(index) {
   try {
-    const res = await axios.delete(`https://crud-api-wkqg.onrender.com/${userID}/${index}`);
-    const resMsg = res.data.message;
+    await axios.delete(`http://127.0.0.1:3000/${userID}/${index}`);
     alert.classList.add("successMessage");
-    setTimeout(function () {
+    setTimeout(() => {
       alert.classList.remove("successMessage");
       alert.innerHTML = "";
     }, 1500);
-    alert.innerHTML = `<p><i class="fa-solid fa-check"></i>${resMsg}</p>`;
+    alert.innerHTML =
+      "<p><i class='fa-solid fa-check'></i>Item deleted successfully.</p>";
     userManagement();
   } catch (err) {
-    let errMsg = err.response.data.error;
+    let errMsg = err.response?.data?.error || "An error occurred.";
     alert.classList.add("errorMessage");
-    setTimeout(function () {
+    setTimeout(() => {
       alert.classList.remove("errorMessage");
       alert.innerHTML = "";
     }, 1500);
     alert.innerHTML = `<p><i class="fa-solid fa-xmark"></i>${errMsg}</p>`;
   }
 }
+
 function nextPage() {
   currentPage++;
   userManagement();
 }
+
 function previousPage() {
   currentPage--;
   userManagement();
@@ -171,6 +165,6 @@ function logoutUser() {
   localStorage.removeItem("userID");
   window.location.href = "../index.html";
 }
-document.querySelector("#closeBtn").addEventListener("click", () => {
-  modal.classList.remove("active");
-});
+
+getLoggedUser();
+userManagement();
