@@ -44,7 +44,13 @@
         <label for="confirmPassword" class="form-label">Confirm Password</label>
         <input type="password" id="confirmPassword" name="confirmPassword" class="form-control" aria-describedby="passwordHelpBlock">
       </div>
-      <button type="submit" class="btn btn-primary">Sign Up</button>
+      <div class="mb-3 text-center">
+        <button id="submitButton" type="submit" class="btn btn-primary">
+          <span id="buttonText">Sign Up</span>
+          <div id="loadingSpinner" class="spinner-border spinner-border-sm text-light ms-2" role="status" style="display: none;"></div>
+        </button>
+        <a href="./index.html" class="btn btn-secondary ms-2">Back to Login</a>
+      </div>
     </form>
     <div class="alert alert-success mt-4 displayNone" role="alert"></div>
       <div class="alert alert-danger mt-4 displayNone" role="alert"></div>

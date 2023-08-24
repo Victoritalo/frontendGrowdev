@@ -27,19 +27,22 @@
 </head>
 <body>
   <div class="form-container">
-    <form id="login">
-      <h1>Login</h1>
+    <form action="post" id="login">
       <div class="mb-3">
         <label for="email" class="form-label">Email address</label>
         <input type="email" class="form-control" id="email" placeholder="name@example.com">
       </div>
-
       <div class="mb-3">
         <label for="password" class="form-label">Password</label>
         <input type="password" id="password" name="password" class="form-control">
       </div>
       <div class="mb-3">
-      <button type="submit" class="btn btn-primary">Login</button>
+        <button id="submitButton" type="submit" class="btn btn-primary">
+          <span id="buttonText">Sign Up</span>
+          <div id="loadingSpinner" class="spinner-border spinner-border-sm text-light ms-2" role="status" style="display: none;"></div>
+        </button>
+      </div>
+        
     </form>
     <div class="alert alert-success mt-4 displayNone" role="alert"></div>
       <div class="alert alert-danger mt-4 displayNone" role="alert"></div>
