@@ -8,7 +8,7 @@ function loginUser() {
     const password = login.password.value;
 
     try {
-      const res = await axios.post("http://127.0.0.1:3000/login", {
+      const res = await axios.post("https://crud-api-wkqg.onrender.com/login", {
         userEmail: email,
         userPass: password,
       });

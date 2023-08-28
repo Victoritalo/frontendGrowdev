@@ -27,7 +27,7 @@ async function userManagement() {
   userID = verifyTokenLocalStorage();
   try {
     const { data } = await axios.get(
-      `http://127.0.0.1:3000/${userID}/${currentPage}`
+      `https://crud-api-wkqg.onrender.com/${userID}/${currentPage}`
     );
     verifyPages(data.totalPages);
     welcomeUser.innerHTML = `Hello, ${data.name}!`;
@@ -56,7 +56,6 @@ async function userManagement() {
     localStorage.clear();
     setTimeout(() => {
       popUpAlert(`${errStatus} ${err.data.error}`);
-      // window.location.reload();
     }, 100);
   }
 }
@@ -78,7 +77,7 @@ function addMessage() {
     const title = messageForm.title.value;
     const message = messageForm.message.value;
     try {
-      const res = await axios.post(`http://127.0.0.1:3000/${userID}/message`, {
+      const res = await axios.post(`https://crud-api-wkqg.onrender.com/${userID}/message`, {
         title: title,
         message: message,
       });
@@ -100,18 +99,10 @@ function addMessage() {
       popUpAlert.innerHTML = "";
       popUpAlert.classList.remove("errorMessage");
     }, 1500);
-    // console.clear();
+
   };
   messageForm.addEventListener("submit", submitHandler);
 }
-// function editItem() {
-//   popUpAlert.innerHTML = `Editing is temporarily disabled`;
-//   popUpAlert.classList.add("errorMessage");
-//   setTimeout(function () {
-//     popUpAlert.innerHTML = "";
-//     popUpAlert.classList.remove("errorMessage");
-//   }, 1500);
-// }
 
 function editItem(messageId) {
   messageForm.reset();
@@ -125,7 +116,7 @@ function editItem(messageId) {
     popUpAlert.innerHTML = "";
     try {
       const res = await axios.put(
-        `http://127.0.0.1:3000/${userID}/${messageId}`,
+        `https://crud-api-wkqg.onrender.com/${userID}/${messageId}`,
         {
           title: title,
           message: message,
@@ -156,7 +147,7 @@ function editItem(messageId) {
 async function deleteItem(messageId) {
   try {
     const res = await axios.delete(
-      `http://127.0.0.1:3000/${userID}/${messageId}`
+      `https://crud-api-wkqg.onrender.com/${userID}/${messageId}`
     );
     const resMsg = res.data.message;
     popUpAlert.classList.add("successMessage");
