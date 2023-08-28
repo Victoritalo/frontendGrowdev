@@ -1,13 +1,13 @@
-const register = document.querySelector("#register");
+const signUp = document.querySelector("#signUp");
 const alertMsg = document.querySelector(".alertText");
 
 function createAccount() {
-  register.addEventListener("submit", async (event) => {
+  signUp.addEventListener("submit", async (event) => {
     event.preventDefault();
-    const name = register.name.value;
-    const email = register.email.value;
-    const password = register.password.value;
-    const confirmPass = register.confirmPass.value;
+    const name = signUp.name.value;
+    const email = signUp.email.value;
+    const password = signUp.password.value;
+    const confirmPass = signUp.confirmPass.value;
 
     try {
       const res = await axios.post("http://127.0.0.1:3000/signup", {
@@ -29,17 +29,19 @@ function createAccount() {
     }
   });
 }
-createAccount();
+
 
 function initializePasswordToggler() {
   const peekPassOne = document.querySelector("#peekPassOne");
   const peekPassTwo = document.querySelector("#peekPassTwo");
   peekPassOne.addEventListener("click", () => {
-    register.password.type =
-      register.password.type === "password" ? "text" : "password";
+    signUp.password.type =
+    signUp.password.type === "password" ? "text" : "password";
   });
   peekPassTwo.addEventListener("click", () => {
-    register.confirmPass.type =
-      register.confirmPass.type === "password" ? "text" : "password";
+    signUp.confirmPass.type =
+    signUp.confirmPass.type === "password" ? "text" : "password";
   });
 }
+createAccount();
+initializePasswordToggler()
