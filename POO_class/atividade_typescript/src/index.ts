@@ -127,7 +127,6 @@ console.log(showExecutives(executiveTwo));
 */
 
 //EX007
-/*
 import { MixedEmployeeList } from "./TypesProject/types";
 const employeeArray: MixedEmployeeList[] = [];
 function addEmployee(): void {
@@ -147,11 +146,11 @@ function addEmployee(): void {
   employeeArray.push(executiveOne, userOne);
 }
 function findExecutiveOrUser(e: string) {
-  addEmployee();
   const filterByOccupation = employeeArray.filter((employee) => {
     return e === employee.occupation;
   });
   return filterByOccupation;
 }
+addEmployee();
 console.log(findExecutiveOrUser("Executive"));
-*/
+
